@@ -1,26 +1,122 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #FAF7F2;
+    --foreground: #1C1917;
+    --card: #FFFFFF;
+    --card-foreground: #1C1917;
+    --primary: #1C1917;
+    --primary-foreground: #FAF7F2;
+    --secondary: #F3ECE2;
+    --secondary-foreground: #292524;
+    --muted: #EDE5DA;
+    --muted-foreground: #78716C;
+    --accent-rose: #9E5A63;
+    --accent-rose-light: #F7ECE9;
+    --accent-burgundy: #6B2A35;
+    --accent-gold: #C5A880;
+    --accent-gold-light: #EFE6D7;
+    --border: #E8DFC8;
+    --ring: #9E5A63;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom utility classes for Korean aesthetic luxury styling */
+.font-serif-luxury {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+.font-sans-clean {
+  font-family: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+}
+
+.bg-cream {
+  background-color: #FAF7F2;
+}
+
+.bg-ivory {
+  background-color: #FDFBF7;
+}
+
+.bg-warm-white {
+  background-color: #FFFFFF;
+}
+
+.bg-sand-subtle {
+  background-color: #F3ECE2;
+}
+
+.bg-blush-subtle {
+  background-color: #F7ECE9;
+}
+
+.text-rose-accent {
+  color: #9E5A63;
+}
+
+.text-burgundy-accent {
+  color: #6B2A35;
+}
+
+.text-gold-accent {
+  color: #C5A880;
+}
+
+.border-subtle {
+  border-color: #EAE2D5;
+}
+
+.border-subtle-gold {
+  border-color: rgba(197, 168, 128, 0.4);
+}
+
+.shadow-subtle {
+  box-shadow: 0 4px 20px -2px rgba(28, 25, 23, 0.04), 0 2px 6px -1px rgba(28, 25, 23, 0.02);
+}
+
+.shadow-hover {
+  box-shadow: 0 10px 30px -4px rgba(28, 25, 23, 0.08), 0 4px 10px -2px rgba(28, 25, 23, 0.04);
+}
+
+/* Subtle editorial underline animation */
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
