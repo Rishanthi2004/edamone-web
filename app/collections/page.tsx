@@ -25,20 +25,20 @@ export default function CollectionsPage() {
       />
 
       {/* Category Overview Cards */}
-      <section className="py-14 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#EAE2D5]">
+      <section className="py-8 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between mb-6 sm:mb-8 pb-3 sm:pb-4 border-b border-[#EAE2D5]">
           <div>
-            <h2 className="font-serif-luxury text-2xl sm:text-3xl font-medium text-[#1C1917]">
+            <h2 className="font-serif-luxury text-xl sm:text-3xl font-medium text-[#1C1917]">
               Browse By Category
             </h2>
-            <p className="text-xs text-[#78716C] mt-1">Select a dedicated collection line to view all available SKUs.</p>
+            <p className="text-xs text-[#78716C] mt-0.5 sm:mt-1">Select a dedicated collection line to view all available SKUs.</p>
           </div>
           <span className="text-xs font-mono text-[#6B2A35] font-semibold">
             {CATEGORIES.length} Categories
           </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6">
           {CATEGORIES.map((category) => (
             <CategoryCard key={category.id} category={category} />
           ))}
@@ -46,14 +46,14 @@ export default function CollectionsPage() {
       </section>
 
       {/* Complete Product Catalog Grid */}
-      <section className="py-14 sm:py-16 bg-[#FFFFFF] border-t border-[#EAE2D5]">
+      <section className="py-8 sm:py-16 bg-[#FFFFFF] border-t border-[#EAE2D5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 pb-4 border-b border-[#EAE2D5]">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 mb-6 sm:mb-10 pb-3 sm:pb-4 border-b border-[#EAE2D5]">
             <div>
               <span className="text-xs uppercase font-semibold tracking-[0.2em] text-[#6B2A35] block mb-1">
                 Full Product Line
               </span>
-              <h2 className="font-serif-luxury text-2xl sm:text-3xl font-medium text-[#1C1917]">
+              <h2 className="font-serif-luxury text-xl sm:text-3xl font-medium text-[#1C1917]">
                 All Wholesale Hair Accessories
               </h2>
             </div>
@@ -70,7 +70,7 @@ export default function CollectionsPage() {
           </div>
 
           {/* Product Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2.5 sm:gap-6">
             {PRODUCTS.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

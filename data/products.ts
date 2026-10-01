@@ -3,7 +3,6 @@ export interface Product {
   slug: string;
   code: string;
   name: string;
-  koreanName?: string;
   category: 'hair-clips' | 'bows' | 'scrunchies' | 'hair-bands' | 'korean-hair-accessories';
   categoryName: string;
   description: string;
@@ -90,7 +89,6 @@ export const PRODUCTS: Product[] = [
     slug: 'korean-pearl-hair-clip',
     code: 'EDG-HC-001',
     name: 'Korean Pearl Hair Clip',
-    koreanName: '진주 헤어 클립',
     category: 'hair-clips',
     categoryName: 'Hair Clips',
     shortDescription: 'Lustrous faux pearl barrette with gold-tone alloy back for an effortless Korean chic look.',
@@ -125,7 +123,6 @@ export const PRODUCTS: Product[] = [
     slug: 'soft-ribbon-bow',
     code: 'EDG-BW-002',
     name: 'Soft Ribbon Bow',
-    koreanName: '소프트 리본 바레트',
     category: 'bows',
     categoryName: 'Bows',
     shortDescription: 'Double-layered soft Korean chiffon ribbon with elegant trailing streamers.',
@@ -161,7 +158,6 @@ export const PRODUCTS: Product[] = [
     slug: 'premium-satin-scrunchie',
     code: 'EDG-SC-003',
     name: 'Premium Satin Scrunchie',
-    koreanName: '프리미엄 새틴 곱창',
     category: 'scrunchies',
     categoryName: 'Scrunchies',
     shortDescription: 'High-density mulberry finish satin scrunchie designed to prevent frizz and breakage.',
@@ -198,7 +194,6 @@ export const PRODUCTS: Product[] = [
     slug: 'minimal-hair-band',
     code: 'EDG-HB-004',
     name: 'Minimal Hair Band',
-    koreanName: '미니멀 벨벳 헤어밴드',
     category: 'hair-bands',
     categoryName: 'Hair Bands',
     shortDescription: 'Ergonomic non-pinch padded headband wrapped in soft matte velvet.',
@@ -234,7 +229,6 @@ export const PRODUCTS: Product[] = [
     slug: 'korean-matte-pastel-claw-clip',
     code: 'EDG-KC-005',
     name: 'Matte Pastel Geometric Claw Clip',
-    koreanName: '매트 파스텔 집게핀',
     category: 'korean-hair-accessories',
     categoryName: 'Korean Hair Accessories',
     shortDescription: 'Curved matte finish French claw clip with high-tension spring for thick and fine hair.',
@@ -272,7 +266,6 @@ export const PRODUCTS: Product[] = [
     slug: 'organza-oversized-cloud-bow',
     code: 'EDG-BW-006',
     name: 'Organza Oversized Cloud Bow',
-    koreanName: '오간자 클라우드 리본',
     category: 'bows',
     categoryName: 'Bows',
     shortDescription: 'Airy sheer organza layered bow with subtle iridescent shimmer.',
@@ -307,7 +300,6 @@ export const PRODUCTS: Product[] = [
     slug: 'tortoise-shell-french-barrette',
     code: 'EDG-HC-007',
     name: 'Tortoise Shell French Barrette',
-    koreanName: '호피 아세테이트 바레트',
     category: 'hair-clips',
     categoryName: 'Hair Clips',
     shortDescription: 'Classic amber tortoiseshell pattern with polished hand-buffed edges.',
@@ -342,7 +334,6 @@ export const PRODUCTS: Product[] = [
     slug: 'pleated-chiffon-hair-band',
     code: 'EDG-HB-008',
     name: 'Pleated Chiffon Twist Headband',
-    koreanName: '플리츠 쉬폰 트위스트 밴드',
     category: 'hair-bands',
     categoryName: 'Hair Bands',
     shortDescription: 'Accordion pleated chiffon knotted at the crown with elastic back wrap.',
@@ -378,7 +369,6 @@ export const PRODUCTS: Product[] = [
     slug: 'korean-crystal-bobby-pin-set',
     code: 'EDG-KC-009',
     name: 'Korean Crystal & Bead Bobby Pin Set',
-    koreanName: '크리스탈 실핀 3종 세트',
     category: 'korean-hair-accessories',
     categoryName: 'Korean Hair Accessories',
     shortDescription: 'Trio of delicate gold-wire bobby pins accented with cubic zirconia and mini pearls.',
@@ -412,7 +402,6 @@ export const PRODUCTS: Product[] = [
     slug: 'cloud-organza-scrunchie-set',
     code: 'EDG-SC-010',
     name: 'Cloud Organza Scrunchie Duo',
-    koreanName: '클라우드 오간자 곱창 세트',
     category: 'scrunchies',
     categoryName: 'Scrunchies',
     shortDescription: 'Pair of sheer voluminous organza scrunchies in harmonious tone pairings.',

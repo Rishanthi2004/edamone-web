@@ -59,8 +59,8 @@ export default async function CategoryDetailPage({ params }: CategoryPageProps) 
       />
 
       {/* Main Content Area */}
-      <section className="py-14 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 pb-4 border-b border-[#EAE2D5]">
+      <section className="py-8 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 mb-6 sm:mb-8 pb-3 sm:pb-4 border-b border-[#EAE2D5]">
           <div>
             <span className="text-xs uppercase tracking-widest text-[#6B2A35] font-semibold">
               {category.subtitle}
@@ -83,7 +83,7 @@ export default async function CategoryDetailPage({ params }: CategoryPageProps) 
 
         {/* Product Grid */}
         {categoryProducts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2.5 sm:gap-6">
             {categoryProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

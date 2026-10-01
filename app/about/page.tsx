@@ -84,7 +84,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-8">
             <div className="p-8 bg-[#FAF7F2] border border-[#E8DFC8] space-y-3">
               <div className="w-10 h-10 bg-[#FFFFFF] border border-[#D8CCB8] flex items-center justify-center text-[#6B2A35]">
                 <Gem className="w-5 h-5" />

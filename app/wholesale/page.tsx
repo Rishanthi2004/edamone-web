@@ -48,7 +48,7 @@ export default function WholesalePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-8">
             <div className="p-8 bg-[#FAF7F2] border border-[#E8DFC8] space-y-4">
               <div className="w-12 h-12 bg-[#FFFFFF] border border-[#D8CCB8] flex items-center justify-center text-[#6B2A35]">
                 <Coins className="w-6 h-6" />

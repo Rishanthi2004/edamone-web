@@ -35,37 +35,37 @@ export default function CustomerTypes() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2.5 sm:gap-6">
           {WHOLESALE_CLIENTS.map((client, idx) => {
             const Icon = ICONS[idx % ICONS.length];
             return (
               <div
                 key={client.title}
-                className="bg-[#FFFFFF] border border-[#EAE2D5] p-6 sm:p-7 flex flex-col justify-between hover:border-[#C5A880] hover:shadow-md transition-all duration-300 group"
+                className="bg-[#FFFFFF] border border-[#EAE2D5] p-3.5 sm:p-7 flex flex-col justify-between hover:border-[#C5A880] hover:shadow-md transition-all duration-300 group"
               >
                 <div>
-                  <div className="w-12 h-12 bg-[#FAF7F2] border border-[#E8DFC8] group-hover:bg-[#6B2A35] group-hover:text-white transition-colors duration-300 flex items-center justify-center text-[#6B2A35] mb-5">
-                    <Icon className="w-5 h-5" />
+                  <div className="w-8 h-8 sm:w-12 sm:h-12 bg-[#FAF7F2] border border-[#E8DFC8] group-hover:bg-[#6B2A35] group-hover:text-white transition-colors duration-300 flex items-center justify-center text-[#6B2A35] mb-2 sm:mb-5">
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
 
-                  <span className="text-[10px] uppercase tracking-widest font-semibold text-[#A8A29E] block mb-1">
+                  <span className="text-[8px] sm:text-[10px] uppercase tracking-wider sm:tracking-widest font-semibold text-[#A8A29E] block mb-0.5 sm:mb-1">
                     {client.tag}
                   </span>
 
-                  <h3 className="font-serif-luxury text-xl font-medium text-[#1C1917] mb-2 group-hover:text-[#6B2A35] transition-colors">
+                  <h3 className="font-serif-luxury text-xs sm:text-xl font-medium text-[#1C1917] mb-1 sm:mb-2 group-hover:text-[#6B2A35] transition-colors leading-snug">
                     {client.title}
                   </h3>
 
-                  <p className="text-xs text-[#66615E] leading-relaxed">
+                  <p className="text-[10px] sm:text-xs text-[#66615E] leading-relaxed">
                     {client.description}
                   </p>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-[#F3ECE2] flex items-center justify-between">
-                  <span className="text-[10px] uppercase tracking-wider text-[#9E5A63] font-medium">
-                    Low MOQs Available
+                <div className="mt-3 sm:mt-5 pt-2 sm:pt-3 border-t border-[#F3ECE2] flex items-center justify-between">
+                  <span className="text-[8px] sm:text-[10px] uppercase tracking-wider text-[#9E5A63] font-medium truncate">
+                    Low MOQs
                   </span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#C5A880]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C5A880] shrink-0" />
                 </div>
               </div>
             );

@@ -28,8 +28,8 @@ export default function NewArrivalsPage() {
       />
 
       {/* Main Grid */}
-      <section className="py-14 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 pb-4 border-b border-[#EAE2D5]">
+      <section className="py-8 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 mb-6 sm:mb-8 pb-3 sm:pb-4 border-b border-[#EAE2D5]">
           <div>
             <div className="flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-[#C5A880]" />
@@ -54,7 +54,7 @@ export default function NewArrivalsPage() {
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2.5 sm:gap-6">
           {newArrivals.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

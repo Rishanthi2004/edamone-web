@@ -149,7 +149,7 @@ export default function Navbar() {
             {/* Desktop Right Action CTA */}
             <div className="hidden sm:flex items-center space-x-2 sm:space-x-3">
               <Link
-                href="/wholesale"
+                href="/contact"
                 className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#1C1917] text-[#FAF7F2] text-xs uppercase tracking-widest font-medium rounded-none hover:bg-[#6B2A35] transition-all duration-300 shadow-sm"
               >
                 <span>Wholesale Enquiry</span>
@@ -159,7 +159,7 @@ export default function Navbar() {
             {/* Mobile Right Action CTA */}
             <div className="flex lg:hidden items-center space-x-2">
               <Link
-                href="/wholesale"
+                href="/contact"
                 className="px-2.5 py-1.5 bg-[#1C1917] text-[#FAF7F2] text-[10px] uppercase tracking-wider font-semibold hover:bg-[#6B2A35] transition-colors"
               >
                 <span>Enquiry</span>
@@ -266,7 +266,7 @@ export default function Navbar() {
 
             <div className="pt-6 border-t border-[#E8DFC8] space-y-3">
               <Link
-                href="/wholesale"
+                href="/contact"
                 className="w-full flex items-center justify-center gap-2 py-3 bg-[#1C1917] text-[#FAF7F2] text-xs uppercase tracking-widest font-medium hover:bg-[#6B2A35] transition-colors"
               >
                 <span>Wholesale Enquiry</span>

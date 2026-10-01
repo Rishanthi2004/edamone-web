@@ -156,12 +156,6 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 <h1 className="font-serif-luxury text-3xl sm:text-4xl md:text-5xl font-medium text-[#1C1917] mt-2">
                   {product.name}
                 </h1>
-
-                {product.koreanName && (
-                  <p className="text-sm text-[#A8A29E] tracking-widest mt-1 font-light">
-                    {product.koreanName}
-                  </p>
-                )}
               </div>
 
               {/* Wholesale Pricing & MOQ Overview Card */}
@@ -293,37 +287,15 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         </div>
       </section>
 
-      {/* Embedded Wholesale Enquiry Form pre-filled for this product */}
-      <section id="enquiry-section" className="py-16 sm:py-20 bg-[#FFFFFF] border-y border-[#EAE2D5]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <span className="text-xs uppercase font-semibold tracking-[0.25em] text-[#6B2A35] block mb-2">
-              Wholesale Order Desk
-            </span>
-            <h2 className="font-serif-luxury text-3xl sm:text-4xl font-medium text-[#1C1917]">
-              Wholesale Enquiry for {product.name}
-            </h2>
-            <p className="text-xs sm:text-sm text-[#78716C] mt-2 max-w-lg mx-auto">
-              Please provide your estimated quantity and boutique details below. Our wholesale team will reply promptly with full rate charts.
-            </p>
-          </div>
-
-          <WholesaleEnquiryForm
-            initialProductCode={product.code}
-            initialProductName={product.name}
-          />
-        </div>
-      </section>
-
       {/* Related Products */}
-      <section className="py-16 sm:py-20 bg-[#FAF7F2]">
+      <section className="py-10 sm:py-20 bg-[#FFFFFF] border-y border-[#EAE2D5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#EAE2D5]">
+          <div className="flex items-center justify-between mb-6 sm:mb-8 pb-3 sm:pb-4 border-b border-[#EAE2D5]">
             <div>
               <span className="text-xs uppercase font-semibold tracking-wider text-[#6B2A35]">
                 Complementary Styles
               </span>
-              <h2 className="font-serif-luxury text-2xl sm:text-3xl font-medium text-[#1C1917] mt-1">
+              <h2 className="font-serif-luxury text-xl sm:text-3xl font-medium text-[#1C1917] mt-1">
                 Related Hair Accessories
               </h2>
             </div>
@@ -335,11 +307,33 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6">
             {displayRelated.map((relProduct) => (
               <ProductCard key={relProduct.id} product={relProduct} />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Embedded Wholesale Enquiry Form pre-filled for this product */}
+      <section id="enquiry-section" className="py-14 sm:py-20 bg-[#FAF7F2]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-10">
+            <span className="text-xs uppercase font-semibold tracking-[0.25em] text-[#6B2A35] block mb-2">
+              Wholesale Order Desk
+            </span>
+            <h2 className="font-serif-luxury text-2xl sm:text-4xl font-medium text-[#1C1917]">
+              Wholesale Enquiry for {product.name}
+            </h2>
+            <p className="text-xs sm:text-sm text-[#78716C] mt-2 max-w-lg mx-auto">
+              Please provide your estimated quantity and boutique details below. Our wholesale team will reply promptly with full rate charts.
+            </p>
+          </div>
+
+          <WholesaleEnquiryForm
+            initialProductCode={product.code}
+            initialProductName={product.name}
+          />
         </div>
       </section>
     </div>

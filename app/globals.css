@@ -120,3 +120,15 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Hide Next.js dev indicator badge / portal across all pages */
+nextjs-portal,
+#nextjs-dev-tools,
+[data-nextjs-dev-tools-button],
+div[data-nextjs-toast-wrapper],
+[data-nextjs-dialog-overlay] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
