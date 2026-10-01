@@ -15,7 +15,7 @@ export default function ProductCard({ product, onQuickEnquire }: ProductCardProp
   const secondaryImage = product.images[1] || primaryImage;
 
   return (
-    <div className="group relative bg-[#FFFFFF] border border-[#EAE2D5] flex flex-col justify-between transition-all duration-300 hover:border-[#C5A880] hover:shadow-lg">
+    <div className="group relative bg-[#FFFFFF] border border-[#EAE2D5] flex flex-col justify-between transition-all duration-300 hover:border-[#C5A880] hover:shadow-lg max-w-[240px] sm:max-w-none mx-auto w-full">
       {/* Top Image Container */}
       <div className="relative aspect-4/5 w-full overflow-hidden bg-[#F3ECE2]">
         {/* Badges */}
@@ -71,7 +71,7 @@ export default function ProductCard({ product, onQuickEnquire }: ProductCardProp
 
           {/* Product Title */}
           <Link href={`/products/${product.slug}`}>
-            <h3 className="font-serif-luxury text-lg font-medium text-[#1C1917] group-hover:text-[#6B2A35] transition-colors line-clamp-1">
+            <h3 className="font-serif-luxury text-[15px] sm:text-lg font-medium text-[#1C1917] group-hover:text-[#6B2A35] transition-colors line-clamp-1">
               {product.name}
             </h3>
           </Link>
@@ -89,7 +89,7 @@ export default function ProductCard({ product, onQuickEnquire }: ProductCardProp
           </p>
 
           {/* Colors / Variations Swatches */}
-          <div className="pt-2 pb-3 border-t border-[#F3ECE2] flex items-center justify-between">
+          <div className="pt-2 pb-2 border-t border-[#F3ECE2] flex items-center justify-between">
             <span className="text-[10px] uppercase tracking-wider text-[#78716C]">
               {product.colors.length} {product.colors.length === 1 ? 'Tone' : 'Tones Available'}
             </span>
@@ -109,6 +109,14 @@ export default function ProductCard({ product, onQuickEnquire }: ProductCardProp
               )}
             </div>
           </div>
+
+          {/* Wholesale Rate in ₹ */}
+          <div className="pt-2 pb-1 flex items-baseline justify-between">
+            <span className="text-[10px] uppercase tracking-wider text-[#78716C]">Wholesale Rate</span>
+            <span className="font-bold text-sm text-[#6B2A35] tracking-tight">
+              {product.wholesalePrice}
+            </span>
+          </div>
         </div>
 
         {/* Action Buttons */}
@@ -125,7 +133,7 @@ export default function ProductCard({ product, onQuickEnquire }: ProductCardProp
               onClick={() => onQuickEnquire(product)}
               className="w-full py-2.5 px-2 bg-[#1C1917] hover:bg-[#6B2A35] text-[#FAF7F2] text-[11px] uppercase tracking-wider font-semibold text-center transition-colors flex items-center justify-center gap-1"
             >
-              <span>Get Price</span>
+              <span>Enquire</span>
               <ArrowRight className="w-3 h-3" />
             </button>
           ) : (
@@ -133,7 +141,7 @@ export default function ProductCard({ product, onQuickEnquire }: ProductCardProp
               href={`/wholesale?code=${product.code}&product=${encodeURIComponent(product.name)}`}
               className="w-full py-2.5 px-2 bg-[#1C1917] hover:bg-[#6B2A35] text-[#FAF7F2] text-[11px] uppercase tracking-wider font-semibold text-center transition-colors flex items-center justify-center gap-1"
             >
-              <span>Get Price</span>
+              <span>Enquire</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
           )}

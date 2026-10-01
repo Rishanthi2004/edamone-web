@@ -11,6 +11,7 @@ export interface Product {
   features: string[];
   materials: string;
   moq: string;
+  wholesalePrice: string;
   wholesalePriceRange: string;
   colors: {
     name: string;
@@ -102,7 +103,8 @@ export const PRODUCTS: Product[] = [
     ],
     materials: 'High-grade resin pearls, Hypoallergenic gold-tone alloy',
     moq: '50 Pcs (Mix Colors)',
-    wholesalePriceRange: 'Tiered wholesale pricing upon enquiry',
+    wholesalePrice: '₹35 / pc',
+    wholesalePriceRange: '₹30 - ₹45 / pc',
     colors: [
       { name: 'Ivory Pearl / Gold', hex: '#FDFBF7' },
       { name: 'Champagne Pearl / Gold', hex: '#EBE2D0' },
@@ -136,7 +138,8 @@ export const PRODUCTS: Product[] = [
     ],
     materials: 'Korean Silk Chiffon, Stainless steel barrette',
     moq: '30 Pcs',
-    wholesalePriceRange: 'Tiered wholesale pricing upon enquiry',
+    wholesalePrice: '₹48 / pc',
+    wholesalePriceRange: '₹40 - ₹60 / pc',
     colors: [
       { name: 'Warm Cream', hex: '#FAF6EE' },
       { name: 'Muted Rose', hex: '#B87D86' },
@@ -171,7 +174,8 @@ export const PRODUCTS: Product[] = [
     ],
     materials: 'High-density satin weave polyester/silk blend',
     moq: '100 Pcs (Assorted)',
-    wholesalePriceRange: 'Tiered wholesale pricing upon enquiry',
+    wholesalePrice: '₹22 / pc',
+    wholesalePriceRange: '₹18 - ₹28 / pc',
     colors: [
       { name: 'Pearl Ivory', hex: '#FDFBF7' },
       { name: 'Soft Sand Beige', hex: '#E2D7C7' },
@@ -207,7 +211,8 @@ export const PRODUCTS: Product[] = [
     ],
     materials: 'Fine micro-velvet, flexible polymer band',
     moq: '40 Pcs',
-    wholesalePriceRange: 'Tiered wholesale pricing upon enquiry',
+    wholesalePrice: '₹55 / pc',
+    wholesalePriceRange: '₹45 - ₹70 / pc',
     colors: [
       { name: 'Oatmeal Beige', hex: '#DED5C4' },
       { name: 'Muted Rosewood', hex: '#9E5A63' },
@@ -242,7 +247,8 @@ export const PRODUCTS: Product[] = [
     ],
     materials: 'High-grade cellulose acetate, zinc alloy spring',
     moq: '60 Pcs (Mix Colors)',
-    wholesalePriceRange: 'Tiered wholesale pricing upon enquiry',
+    wholesalePrice: '₹28 / pc',
+    wholesalePriceRange: '₹24 - ₹38 / pc',
     colors: [
       { name: 'Cream Butter', hex: '#F7E7CE' },
       { name: 'Dusty Peach', hex: '#F0C2B6' },
@@ -279,7 +285,8 @@ export const PRODUCTS: Product[] = [
     ],
     materials: 'Iridescent fine organza, steel spring barrette',
     moq: '30 Pcs',
-    wholesalePriceRange: 'Tiered wholesale pricing upon enquiry',
+    wholesalePrice: '₹52 / pc',
+    wholesalePriceRange: '₹45 - ₹65 / pc',
     colors: [
       { name: 'Sheer Pearl White', hex: '#FAFAFA' },
       { name: 'Blush Champagne', hex: '#F5E6E0' },
@@ -313,7 +320,8 @@ export const PRODUCTS: Product[] = [
     ],
     materials: 'Cellulose Acetate, Polished Brass Clasp',
     moq: '50 Pcs',
-    wholesalePriceRange: 'Tiered wholesale pricing upon enquiry',
+    wholesalePrice: '₹38 / pc',
+    wholesalePriceRange: '₹32 - ₹48 / pc',
     colors: [
       { name: 'Amber Tortoise', hex: '#8B4513' },
       { name: 'Blonde Tokyo Tortoise', hex: '#C29B38' },
@@ -347,7 +355,8 @@ export const PRODUCTS: Product[] = [
     ],
     materials: 'Micro-pleated georgette chiffon, flexible resin frame',
     moq: '40 Pcs',
-    wholesalePriceRange: 'Tiered wholesale pricing upon enquiry',
+    wholesalePrice: '₹58 / pc',
+    wholesalePriceRange: '₹48 - ₹72 / pc',
     colors: [
       { name: 'Vanilla Cream', hex: '#F7F3E9' },
       { name: 'Dusty Rosewood', hex: '#A36870' },
@@ -382,7 +391,8 @@ export const PRODUCTS: Product[] = [
     ],
     materials: 'Cubic zirconia, faux mini pearls, gold-plated spring steel',
     moq: '50 Sets',
-    wholesalePriceRange: 'Tiered wholesale pricing upon enquiry',
+    wholesalePrice: '₹45 / set',
+    wholesalePriceRange: '₹38 - ₹55 / set',
     colors: [
       { name: 'Champagne & Clear Crystal', hex: '#F0EAD6' },
       { name: 'Blush & Rose Crystal', hex: '#E8CCD0' }
@@ -415,7 +425,8 @@ export const PRODUCTS: Product[] = [
     ],
     materials: 'Featherlight sheer organza, reinforced braided elastic',
     moq: '60 Sets',
-    wholesalePriceRange: 'Tiered wholesale pricing upon enquiry',
+    wholesalePrice: '₹32 / duo pack',
+    wholesalePriceRange: '₹26 - ₹40 / duo pack',
     colors: [
       { name: 'Cream + Ivory', hex: '#FAF7F0' },
       { name: 'Soft Rose + Blush', hex: '#EFCFD4' },

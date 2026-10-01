@@ -11,7 +11,7 @@ export default function CategoryCard({ category }: CategoryCardProps) {
   return (
     <Link
       href={`/collections/${category.slug}`}
-      className="group relative block overflow-hidden bg-[#1C1917] border border-[#EAE2D5]"
+      className="group relative block overflow-hidden bg-[#1C1917] border border-[#EAE2D5] max-w-[240px] sm:max-w-none mx-auto w-full"
     >
       {/* Category Image */}
       <div className="relative aspect-4/5 w-full overflow-hidden">
@@ -28,12 +28,12 @@ export default function CategoryCard({ category }: CategoryCardProps) {
       </div>
 
       {/* Content overlay */}
-      <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
+      <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-end text-white">
         <span className="text-[10px] uppercase tracking-[0.25em] text-[#DFCDAF] font-medium mb-1">
           {category.itemCount} Designs Available
         </span>
         
-        <h3 className="font-serif-luxury text-2xl sm:text-3xl font-normal tracking-wide text-[#FAF7F2] mb-1 group-hover:text-[#F3ECE2] transition-colors">
+        <h3 className="font-serif-luxury text-lg sm:text-2xl md:text-3xl font-normal tracking-wide text-[#FAF7F2] mb-1 group-hover:text-[#F3ECE2] transition-colors">
           {category.name}
         </h3>
         

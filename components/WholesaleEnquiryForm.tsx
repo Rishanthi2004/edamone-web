@@ -214,18 +214,18 @@ export default function WholesaleEnquiryForm({
             {/* Approximate Quantity */}
             <div>
               <label className="block text-[11px] uppercase tracking-wider font-semibold text-[#44403C] mb-1.5">
-                Estimated Order Quantity
+                Estimated Order Quantity & Budget
               </label>
               <select
                 value={approxQuantity}
                 onChange={(e) => setApproxQuantity(e.target.value)}
                 className="w-full px-3.5 py-2.5 bg-[#FAF7F2] border border-[#E8DFC8] text-sm text-[#1C1917] focus:outline-none focus:border-[#9E5A63] focus:bg-white transition-colors"
               >
-                <option value="30 - 50 Pcs (Starter Sample Kit)">30 - 50 Pcs (Starter Sample Kit)</option>
-                <option value="50 - 100 Pcs">50 - 100 Pcs</option>
-                <option value="100 - 300 Pcs">100 - 300 Pcs</option>
-                <option value="300 - 500 Pcs">300 - 500 Pcs</option>
-                <option value="500+ Pcs (Volume Commercial)">500+ Pcs (Volume Commercial)</option>
+                <option value="30 - 50 Pcs (₹1,500 - ₹2,500 Sample Kit)">30 - 50 Pcs (₹1,500 - ₹2,500 Sample Kit)</option>
+                <option value="50 - 100 Pcs (₹2,500 - ₹5,000)">50 - 100 Pcs (₹2,500 - ₹5,000)</option>
+                <option value="100 - 300 Pcs (₹5,000 - ₹15,000)">100 - 300 Pcs (₹5,000 - ₹15,000)</option>
+                <option value="300 - 500 Pcs (₹15,000 - ₹25,000)">300 - 500 Pcs (₹15,000 - ₹25,000)</option>
+                <option value="500+ Pcs (₹25,000+ Bulk Commercial)">500+ Pcs (₹25,000+ Bulk Commercial)</option>
               </select>
             </div>
           </div>

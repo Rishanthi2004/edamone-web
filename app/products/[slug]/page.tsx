@@ -169,20 +169,23 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 <div className="flex items-center justify-between pb-3 border-b border-[#F3ECE2]">
                   <div>
                     <span className="text-[11px] uppercase tracking-wider text-[#78716C]">Wholesale Price Tier</span>
-                    <p className="font-serif-luxury text-2xl font-semibold text-[#6B2A35]">
-                      Available Upon Enquiry
+                    <p className="font-serif-luxury text-2xl sm:text-3xl font-semibold text-[#6B2A35]">
+                      {product.wholesalePrice}
                     </p>
+                    <span className="text-[11px] text-[#78716C] font-mono">
+                      Tier Range: {product.wholesalePriceRange}
+                    </span>
                   </div>
                   <div className="text-right">
                     <span className="text-[11px] uppercase tracking-wider text-[#78716C]">Minimum Order</span>
-                    <p className="font-mono text-sm font-bold text-[#1C1917]">
+                    <p className="font-mono text-sm sm:text-base font-bold text-[#1C1917]">
                       {product.moq}
                     </p>
                   </div>
                 </div>
 
                 <p className="text-xs text-[#78716C] leading-relaxed">
-                  Wholesale volume discounts apply automatically for orders over 100+ and 300+ units. Contact us for custom price tier quotation.
+                  Wholesale volume discounts apply automatically for orders over 100+ and 300+ units. Prices in INR (₹). Contact us for custom price tier quotation.
                 </p>
               </div>
 

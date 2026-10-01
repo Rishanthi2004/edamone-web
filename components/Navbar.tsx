@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, Sparkles, ArrowRight } from 'lucide-react';
-import { InstagramIcon, WhatsAppIcon } from '@/components/icons';
+import { WhatsAppIcon } from '@/components/icons';
 
 const NAV_LINKS = [
   { name: 'Home', href: '/' },
@@ -51,7 +51,7 @@ export default function Navbar() {
       {/* Top Wholesale Notification Bar */}
       <div className="bg-[#1C1917] text-[#FAF7F2] text-[11px] sm:text-xs py-2 px-4 text-center tracking-widest uppercase font-medium flex items-center justify-center gap-2 border-b border-[#2D2825]">
         <Sparkles className="w-3 h-3 text-[#C5A880] animate-pulse" />
-        <span>Wholesale Orders Open • Low MOQs for Boutiques & Resellers • Worldwide Dispatch</span>
+        <span>Wholesale Orders Open • Rates from ₹22/pc • Low MOQs • Pan-India & Global Dispatch</span>
         <Sparkles className="w-3 h-3 text-[#C5A880] animate-pulse hidden sm:inline-block" />
       </div>
 
@@ -65,15 +65,27 @@ export default function Navbar() {
       >
         <div className="max-w-[1440px] mx-auto px-3 sm:px-5 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Brand Logo / Wordmark - Shifted comfortably to the left */}
-            <Link href="/" className="group flex flex-col items-start focus:outline-none -ml-0.5 sm:-ml-1 lg:-ml-2">
-              <span className="font-serif-luxury text-2xl sm:text-3xl tracking-[0.18em] font-semibold text-[#1C1917] transition-colors group-hover:text-[#6B2A35]">
-                EDAMONEGLINT
-              </span>
-              <span className="text-[9px] sm:text-[10px] tracking-[0.25em] text-[#78716C] uppercase font-light -mt-0.5">
-                Korean Hair Accessories • Wholesale
-              </span>
-            </Link>
+            {/* Left side: Mobile Menu Button + Brand Logo */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              {/* Mobile Menu Trigger on the LEFT */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
+                className="p-1.5 -ml-1 text-[#1C1917] hover:bg-[#F3ECE2] rounded-none focus:outline-none lg:hidden cursor-pointer"
+              >
+                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+
+              {/* Brand Logo / Wordmark */}
+              <Link href="/" className="group flex flex-col items-start focus:outline-none">
+                <span className="font-serif-luxury text-[13px] sm:text-2xl md:text-3xl tracking-[0.10em] sm:tracking-[0.18em] font-semibold text-[#1C1917] transition-colors group-hover:text-[#6B2A35] leading-tight">
+                  EDAMONEGLINT
+                </span>
+                <span className="text-[6px] sm:text-[10px] tracking-[0.15em] sm:tracking-[0.25em] text-[#78716C] uppercase font-light mt-0.5">
+                  Korean Hair Accessories • Wholesale
+                </span>
+              </Link>
+            </div>
 
             {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center space-x-7 text-[13px] tracking-[0.12em] uppercase font-medium text-[#292524]">
@@ -134,62 +146,30 @@ export default function Navbar() {
               })}
             </nav>
 
-            {/* Right Action Icons & CTA */}
+            {/* Desktop Right Action CTA */}
             <div className="hidden sm:flex items-center space-x-2 sm:space-x-3">
-              <a
-                href="https://instagram.com/edamoneglint"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="EDAMONEGLINT Instagram"
-                className="p-2 text-[#44403C] hover:text-[#E1306C] transition-colors rounded-full hover:bg-[#F3ECE2] flex items-center justify-center"
-                title="Follow @edamoneglint"
-              >
-                <InstagramIcon className="w-5 h-5" />
-              </a>
-
-              <a
-                href="https://wa.me/?text=Hello%20Edamoneglint,%20I%20would%20like%20to%20inquire%20about%20wholesale%20hair%20accessories."
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="EDAMONEGLINT WhatsApp"
-                className="p-2 text-[#25D366] hover:text-[#1EBE5B] transition-colors rounded-full hover:bg-[#F3ECE2] flex items-center justify-center"
-                title="Chat on WhatsApp"
-              >
-                <WhatsAppIcon className="w-5 h-5 text-[#25D366]" />
-              </a>
-
               <Link
                 href="/wholesale"
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#1C1917] text-[#FAF7F2] text-xs uppercase tracking-widest font-medium rounded-none hover:bg-[#6B2A35] transition-all duration-300 shadow-sm ml-1"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#1C1917] text-[#FAF7F2] text-xs uppercase tracking-widest font-medium rounded-none hover:bg-[#6B2A35] transition-all duration-300 shadow-sm"
               >
                 <span>Wholesale Enquiry</span>
               </Link>
             </div>
 
-            {/* Mobile Menu Trigger */}
+            {/* Mobile Right Action CTA */}
             <div className="flex lg:hidden items-center space-x-2">
-              <a
-                href="https://wa.me/?text=Hello%20Edamoneglint,%20I%20would%20like%20to%20inquire%20about%20wholesale%20hair%20accessories."
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp Wholesale"
-                className="p-2 text-[#25D366] hover:bg-[#F3ECE2] rounded-full"
+              <Link
+                href="/wholesale"
+                className="px-2.5 py-1.5 bg-[#1C1917] text-[#FAF7F2] text-[10px] uppercase tracking-wider font-semibold hover:bg-[#6B2A35] transition-colors"
               >
-                <WhatsAppIcon className="w-6 h-6 text-[#25D366]" />
-              </a>
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                aria-label={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
-                className="p-2 text-[#1C1917] hover:bg-[#F3ECE2] rounded-none focus:outline-none"
-              >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
+                <span>Enquiry</span>
+              </Link>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Menu Drawer (Slides from Left) */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           {/* Backdrop */}
@@ -198,8 +178,8 @@ export default function Navbar() {
             onClick={() => setIsMobileMenuOpen(false)}
           />
 
-          {/* Side Drawer */}
-          <div className="fixed inset-y-0 right-0 max-w-xs w-full bg-[#FAF7F2] shadow-2xl flex flex-col justify-between p-6 z-10 border-l border-[#E8DFC8] overflow-y-auto">
+          {/* Side Drawer on the LEFT */}
+          <div className="fixed inset-y-0 left-0 max-w-xs w-full bg-[#FAF7F2] shadow-2xl flex flex-col justify-between p-6 z-10 border-r border-[#E8DFC8] overflow-y-auto">
             <div>
               <div className="flex items-center justify-between pb-5 border-b border-[#E8DFC8]">
                 <div>
@@ -302,17 +282,6 @@ export default function Navbar() {
                 <WhatsAppIcon className="w-5 h-5 text-[#25D366]" />
                 <span>Chat on WhatsApp</span>
               </a>
-
-              <div className="flex items-center justify-center gap-4 pt-2">
-                <a
-                  href="https://instagram.com/edamoneglint"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 text-[#78716C] hover:text-[#E1306C]"
-                >
-                  <InstagramIcon className="w-5 h-5" />
-                </a>
-              </div>
             </div>
           </div>
         </div>

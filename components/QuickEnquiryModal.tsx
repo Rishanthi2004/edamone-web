@@ -37,8 +37,12 @@ export default function QuickEnquiryModal({
             <h3 className="font-serif-luxury text-xl sm:text-2xl text-[#1C1917] mt-0.5 font-medium">
               {product.name}
             </h3>
-            <p className="text-xs text-[#78716C] font-mono mt-0.5">
-              SKU: {product.code} • MOQ: {product.moq}
+            <p className="text-xs text-[#78716C] font-mono mt-0.5 flex flex-wrap items-center gap-2">
+              <span>SKU: {product.code}</span>
+              <span>•</span>
+              <span className="text-[#6B2A35] font-semibold">Rate: {product.wholesalePrice}</span>
+              <span>•</span>
+              <span>MOQ: {product.moq}</span>
             </p>
           </div>
           <button

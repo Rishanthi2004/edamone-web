@@ -41,29 +41,24 @@ export default function HomePage() {
         {/* Subtle Background Accent Gradient */}
         <div className="absolute inset-0 bg-radial-at-t from-[#F7ECE9]/60 via-[#FAF7F2] to-[#FAF7F2] pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 w-full relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-10 sm:py-16 md:py-20 w-full relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
             {/* Left Editorial Copy */}
-            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              {/* Tag Label */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#FFFFFF] border border-[#E8DFC8] text-[11px] uppercase tracking-[0.25em] text-[#6B2A35] font-semibold shadow-2xs">
-                <Sparkles className="w-3.5 h-3.5 text-[#C5A880]" />
-                <span>KOREAN-INSPIRED • WHOLESALE</span>
-              </div>
+            <div className="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left">
 
               {/* Main Headline */}
-              <h1 className="font-serif-luxury text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-[#1C1917] tracking-tight leading-[1.08]">
+              <h1 className="font-serif-luxury text-[26px] xs:text-[30px] sm:text-5xl md:text-6xl lg:text-7xl font-light text-[#1C1917] tracking-normal sm:tracking-tight leading-[1.22] sm:leading-[1.08] break-words">
                 Korean Hair Accessories, <br className="hidden sm:inline" />
                 <span className="italic font-normal text-[#6B2A35]">Made for Your</span> Collection.
               </h1>
 
               {/* Supporting Copy */}
-              <p className="text-base sm:text-lg text-[#57534E] max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+              <p className="text-[13px] xs:text-sm sm:text-lg text-[#57534E] max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
                 Curated hair accessories designed for boutiques, retailers and resellers. Thoughtful craftsmanship, soft Korean palettes, and effortless wholesale ordering.
               </p>
 
               {/* Call-to-action Buttons */}
-              <div className="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <div className="pt-2 sm:pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4">
                 <Link
                   href="/collections"
                   className="w-full sm:w-auto px-8 py-3.5 bg-[#1C1917] hover:bg-[#6B2A35] text-[#FAF7F2] text-xs uppercase tracking-[0.2em] font-semibold text-center transition-all duration-300 shadow-sm flex items-center justify-center gap-2 group"
@@ -81,25 +76,25 @@ export default function HomePage() {
               </div>
 
               {/* Micro Perks */}
-              <div className="pt-6 border-t border-[#EAE2D5]/70 grid grid-cols-3 gap-2 sm:gap-6 text-center lg:text-left">
+              <div className="pt-5 sm:pt-6 border-t border-[#EAE2D5]/70 grid grid-cols-3 gap-2 sm:gap-6 text-center lg:text-left">
                 <div>
-                  <span className="block font-serif-luxury text-xl sm:text-2xl font-bold text-[#1C1917]">Low MOQ</span>
-                  <span className="text-[10px] sm:text-[11px] text-[#78716C] uppercase tracking-wider">From 30-50 pcs</span>
+                  <span className="block font-serif-luxury text-base xs:text-lg sm:text-2xl font-bold text-[#1C1917]">Low MOQ</span>
+                  <span className="text-[9px] xs:text-[10px] sm:text-[11px] text-[#78716C] uppercase tracking-wider">From 30-50 pcs</span>
                 </div>
                 <div>
-                  <span className="block font-serif-luxury text-xl sm:text-2xl font-bold text-[#1C1917]">Seoul Trend</span>
-                  <span className="text-[10px] sm:text-[11px] text-[#78716C] uppercase tracking-wider">Fresh New Edits</span>
+                  <span className="block font-serif-luxury text-base xs:text-lg sm:text-2xl font-bold text-[#1C1917]">Seoul Trend</span>
+                  <span className="text-[9px] xs:text-[10px] sm:text-[11px] text-[#78716C] uppercase tracking-wider">Fresh New Edits</span>
                 </div>
                 <div>
-                  <span className="block font-serif-luxury text-xl sm:text-2xl font-bold text-[#1C1917]">Direct Chat</span>
-                  <span className="text-[10px] sm:text-[11px] text-[#78716C] uppercase tracking-wider">Instant WhatsApp</span>
+                  <span className="block font-serif-luxury text-base xs:text-lg sm:text-2xl font-bold text-[#1C1917]">Direct Chat</span>
+                  <span className="text-[9px] xs:text-[10px] sm:text-[11px] text-[#78716C] uppercase tracking-wider">Instant WhatsApp</span>
                 </div>
               </div>
             </div>
 
             {/* Right Hero Visual Collage */}
             <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto max-w-md lg:max-w-none">
+              <div className="relative mx-auto max-w-[240px] sm:max-w-md lg:max-w-none">
                 {/* Main Large Image */}
                 <div className="relative aspect-3/4 w-full bg-[#EAE2D5] overflow-hidden border border-[#E8DFC8] shadow-xl">
                   <Image
@@ -147,7 +142,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Lifestyle Image Beside Content */}
             <div className="lg:col-span-5 order-2 lg:order-1">
-              <div className="relative aspect-4/5 w-full bg-[#F3ECE2] border border-[#E8DFC8] shadow-md overflow-hidden group">
+              <div className="relative aspect-4/5 w-full max-w-[240px] sm:max-w-none mx-auto bg-[#F3ECE2] border border-[#E8DFC8] shadow-md overflow-hidden group">
                 <Image
                   src="/images/brand-intro-clips.jpg"
                   alt="Edamoneglint Korean Aesthetic Hair Accessories"
@@ -224,23 +219,23 @@ export default function HomePage() {
             {/* 6th Card: New Arrivals Callout */}
             <Link
               href="/new-arrivals"
-              className="group relative block overflow-hidden bg-[#2D2622] border border-[#EAE2D5] min-h-[340px] p-8 flex flex-col justify-between text-white"
+              className="group relative block overflow-hidden bg-[#2D2622] border border-[#EAE2D5] min-h-[220px] sm:min-h-[340px] p-5 sm:p-8 flex flex-col justify-between text-white max-w-[320px] sm:max-w-none mx-auto w-full"
             >
-              <div className="space-y-2">
+              <div className="space-y-1.5 sm:space-y-2">
                 <span className="inline-block px-2.5 py-1 bg-[#6B2A35] text-white text-[10px] uppercase font-bold tracking-widest">
                   Latest Drop
                 </span>
-                <h3 className="font-serif-luxury text-3xl font-light text-[#FAF7F2] mt-2 group-hover:text-[#DFCDAF] transition-colors">
+                <h3 className="font-serif-luxury text-xl sm:text-3xl font-light text-[#FAF7F2] mt-1 sm:mt-2 group-hover:text-[#DFCDAF] transition-colors">
                   New Season Arrivals
                 </h3>
-                <p className="text-xs text-[#A8A29E] leading-relaxed">
+                <p className="text-[11px] sm:text-xs text-[#A8A29E] leading-relaxed line-clamp-2 sm:line-clamp-none">
                   Discover the newest batch of Seoul-trending barrettes, padded headbands, and sheer organza styles.
                 </p>
               </div>
 
-              <div className="pt-6 border-t border-[#443D39] flex items-center justify-between text-xs uppercase tracking-widest font-medium text-[#C5A880] group-hover:text-white transition-colors">
+              <div className="pt-4 sm:pt-6 border-t border-[#443D39] flex items-center justify-between text-[11px] sm:text-xs uppercase tracking-widest font-medium text-[#C5A880] group-hover:text-white transition-colors">
                 <span>Shop New Arrivals</span>
-                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform" />
+                <ArrowRight className="w-3.5 sm:w-4 h-3.5 sm:h-4 transform group-hover:translate-x-1.5 transition-transform" />
               </div>
             </Link>
           </div>
