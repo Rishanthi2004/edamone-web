@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, Sparkles, ArrowRight } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/icons';
+import { useWebsiteContent } from '@/context/WebsiteContentContext';
 
 const NAV_LINKS = [
   { name: 'Home', href: '/' },
@@ -27,6 +28,7 @@ const NAV_LINKS = [
 ];
 
 export default function Navbar() {
+  const { content } = useWebsiteContent();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCollectionsOpen, setIsCollectionsOpen] = useState(false);
@@ -46,13 +48,21 @@ export default function Navbar() {
     setIsCollectionsOpen(false);
   }, [pathname]);
 
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
+
+  const announcementText =
+    content?.home?.announcementBar?.text ||
+    'Wholesale Orders Open • Rates from ₹22/pc • Low MOQs • Pan-India & Global Dispatch';
+
   return (
     <>
       {/* Top Wholesale Notification Bar */}
       <div className="bg-[#1C1917] text-[#FAF7F2] text-[11px] sm:text-xs py-2 px-4 text-center tracking-widest uppercase font-medium flex items-center justify-center gap-2 border-b border-[#2D2825]">
-        <Sparkles className="w-3 h-3 text-[#C5A880] animate-pulse" />
-        <span>Wholesale Orders Open • Rates from ₹22/pc • Low MOQs • Pan-India & Global Dispatch</span>
-        <Sparkles className="w-3 h-3 text-[#C5A880] animate-pulse hidden sm:inline-block" />
+        <Sparkles className="w-3 h-3 text-[#C5A880] animate-pulse shrink-0" />
+        <span className="truncate max-w-[85vw] sm:max-w-none">{announcementText}</span>
+        <Sparkles className="w-3 h-3 text-[#C5A880] animate-pulse hidden sm:inline-block shrink-0" />
       </div>
 
       {/* Main Navigation Bar */}

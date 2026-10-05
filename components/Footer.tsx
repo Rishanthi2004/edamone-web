@@ -1,15 +1,22 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ArrowUpRight, ChevronUp } from 'lucide-react';
 import { InstagramIcon, WhatsAppIcon } from '@/components/icons';
 
 export default function Footer() {
+  const pathname = usePathname();
+
   const scrollToTop = () => {
     if (typeof window !== 'undefined') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
+
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
 
   return (
     <footer className="bg-[#1C1917] text-[#FAF7F2] border-t border-[#2E2824]">

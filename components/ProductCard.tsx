@@ -45,6 +45,7 @@ export default function ProductCard({ product, onQuickEnquire }: ProductCardProp
             src={primaryImage}
             alt={product.name}
             fill
+            unoptimized={primaryImage.startsWith('data:') || primaryImage.startsWith('blob:')}
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
             className="object-cover object-center transition-all duration-500 group-hover:scale-105 group-hover:opacity-0"
           />
@@ -52,6 +53,7 @@ export default function ProductCard({ product, onQuickEnquire }: ProductCardProp
             src={secondaryImage}
             alt={`${product.name} alternate view`}
             fill
+            unoptimized={secondaryImage.startsWith('data:') || secondaryImage.startsWith('blob:')}
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
             className="object-cover object-center transition-all duration-500 scale-105 opacity-0 group-hover:opacity-100 group-hover:scale-100 absolute inset-0"
           />

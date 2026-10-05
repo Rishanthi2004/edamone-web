@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
+import { WebsiteContentProvider } from "@/context/WebsiteContentContext";
+import { ProductsProvider } from "@/context/ProductsContext";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -54,10 +56,14 @@ export default function RootLayout({
       className={`${cormorant.variable} ${jakarta.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans-clean bg-[#FAF7F2] text-[#1C1917] selection:bg-[#F3ECE2] selection:text-[#6B2A35]">
-        <Navbar />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-        <WhatsAppFloatingButton />
+        <WebsiteContentProvider>
+          <ProductsProvider>
+            <Navbar />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+            <WhatsAppFloatingButton />
+          </ProductsProvider>
+        </WebsiteContentProvider>
       </body>
     </html>
   );

@@ -13,7 +13,8 @@ import {
   Zap,
 } from 'lucide-react';
 import { InstagramIcon, WhatsAppIcon } from '@/components/icons';
-import { CATEGORIES, PRODUCTS, Product } from '@/data/products';
+import { CATEGORIES, Product } from '@/data/products';
+import { useProducts } from '@/context/ProductsContext';
 import ProductCard from '@/components/ProductCard';
 import CategoryCard from '@/components/CategoryCard';
 import ProcessTimeline from '@/components/ProcessTimeline';
@@ -21,18 +22,28 @@ import CustomerTypes from '@/components/CustomerTypes';
 import InstagramFeed from '@/components/InstagramFeed';
 import WholesaleEnquiryForm from '@/components/WholesaleEnquiryForm';
 import QuickEnquiryModal from '@/components/QuickEnquiryModal';
+import { useWebsiteContent } from '@/context/WebsiteContentContext';
+import { INITIAL_WEBSITE_CONTENT } from '@/data/websiteContent';
 
 export default function HomePage() {
+  const { content } = useWebsiteContent();
+  const { products } = useProducts();
+  const homeContent = content?.home || INITIAL_WEBSITE_CONTENT.home;
+
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const featuredProducts = PRODUCTS.filter((p) => p.isFeatured).slice(0, 4);
-  const newArrivalProducts = PRODUCTS.filter((p) => p.isNewArrival).slice(0, 4);
+  const featuredProducts = products.filter((p) => p.isFeatured).slice(0, 4);
+  const newArrivalProducts = products.filter((p) => p.isNewArrival).slice(0, 4);
 
   const handleQuickEnquire = (product: Product) => {
     setSelectedProduct(product);
     setIsModalOpen(true);
   };
+
+  const heroImageSrc = homeContent.hero?.heroImage || '/images/hero-claw-clip.jpg';
+  const floatingCardImageSrc = homeContent.hero?.floatingCardImage || '/images/category-bows.jpg';
+  const brandIntroImageSrc = homeContent.brandIntro?.image || '/images/brand-intro-clips.jpg';
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -51,8 +62,14 @@ export default function HomePage() {
                 <div className="flex-1">
                   {/* Main Headline */}
                   <h1 className="font-serif-luxury text-[24px] xs:text-[28px] sm:text-5xl md:text-6xl lg:text-7xl font-light text-[#1C1917] tracking-normal sm:tracking-tight leading-[1.22] sm:leading-[1.08] break-words">
-                    Korean Hair Accessories, <br className="hidden sm:inline" />
-                    <span className="italic font-normal text-[#6B2A35]">Made for Your</span> Collection.
+                    {homeContent.hero.headlineStart}{' '}
+                    <br className="hidden sm:inline" />
+                    {homeContent.hero.headlineHighlight && (
+                      <span className="italic font-normal text-[#6B2A35]">
+                        {homeContent.hero.headlineHighlight}{' '}
+                      </span>
+                    )}
+                    {homeContent.hero.headlineEnd}
                   </h1>
                 </div>
 
@@ -60,59 +77,62 @@ export default function HomePage() {
                 <div className="sm:hidden shrink-0 w-[105px] xs:w-[120px] pt-1">
                   <div className="relative aspect-4/5 w-full bg-[#EAE2D5] overflow-hidden border border-[#E8DFC8] shadow-md">
                     <Image
-                      src="/images/hero-claw-clip.jpg"
+                      src={heroImageSrc}
                       alt="Korean Hair Accessory"
                       fill
                       priority
+                      unoptimized={heroImageSrc.startsWith('data:') || heroImageSrc.startsWith('http')}
                       sizes="120px"
                       className="object-cover object-center"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
-                    <span className="absolute bottom-1 left-1 right-1 text-center bg-white/90 backdrop-blur-xs text-[7px] font-mono font-semibold text-[#6B2A35] py-0.5 px-1 border border-[#E8DFC8]/80 truncate">
-                      EDG-KC-005
-                    </span>
+                    {homeContent.hero.floatingBadgeSku && (
+                      <span className="absolute bottom-1 left-1 right-1 text-center bg-white/90 backdrop-blur-xs text-[7px] font-mono font-semibold text-[#6B2A35] py-0.5 px-1 border border-[#E8DFC8]/80 truncate">
+                        {homeContent.hero.floatingBadgeSku}
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
 
               {/* Supporting Copy */}
               <p className="text-[13px] xs:text-sm sm:text-lg text-[#57534E] max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
-                Curated hair accessories designed for boutiques, retailers and resellers. Thoughtful craftsmanship, soft Korean palettes, and effortless wholesale ordering.
+                {homeContent.hero.supportingCopy}
               </p>
 
               {/* Call-to-action Buttons */}
               <div className="pt-2 sm:pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4">
                 <Link
-                  href="/collections"
+                  href={homeContent.hero.primaryButtonLink || '/collections'}
                   className="w-full sm:w-auto px-8 py-3.5 bg-[#1C1917] hover:bg-[#6B2A35] text-[#FAF7F2] text-xs uppercase tracking-[0.2em] font-semibold text-center transition-all duration-300 shadow-sm flex items-center justify-center gap-2 group"
                 >
-                  <span>Explore Collection</span>
+                  <span>{homeContent.hero.primaryButtonText || 'Explore Collection'}</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </Link>
 
                 <Link
-                  href="/wholesale"
+                  href={homeContent.hero.secondaryButtonLink || '/wholesale'}
                   className="w-full sm:w-auto px-8 py-3.5 bg-[#FFFFFF] border border-[#D8CCB8] hover:border-[#1C1917] text-[#1C1917] text-xs uppercase tracking-[0.2em] font-semibold text-center transition-all duration-300"
                 >
-                  Wholesale Enquiry
+                  {homeContent.hero.secondaryButtonText || 'Wholesale Enquiry'}
                 </Link>
               </div>
 
               {/* Micro Perks */}
-              <div className="pt-5 sm:pt-6 border-t border-[#EAE2D5]/70 grid grid-cols-3 gap-2 sm:gap-6 text-center lg:text-left">
-                <div>
-                  <span className="block font-serif-luxury text-base xs:text-lg sm:text-2xl font-bold text-[#1C1917]">Low MOQ</span>
-                  <span className="text-[9px] xs:text-[10px] sm:text-[11px] text-[#78716C] uppercase tracking-wider">From 30-50 pcs</span>
+              {homeContent.hero.perks && homeContent.hero.perks.length > 0 && (
+                <div className="pt-5 sm:pt-6 border-t border-[#EAE2D5]/70 grid grid-cols-3 gap-2 sm:gap-6 text-center lg:text-left">
+                  {homeContent.hero.perks.map((perk, idx) => (
+                    <div key={idx}>
+                      <span className="block font-serif-luxury text-base xs:text-lg sm:text-2xl font-bold text-[#1C1917]">
+                        {perk.title}
+                      </span>
+                      <span className="text-[9px] xs:text-[10px] sm:text-[11px] text-[#78716C] uppercase tracking-wider">
+                        {perk.subtitle}
+                      </span>
+                    </div>
+                  ))}
                 </div>
-                <div>
-                  <span className="block font-serif-luxury text-base xs:text-lg sm:text-2xl font-bold text-[#1C1917]">Seoul Trend</span>
-                  <span className="text-[9px] xs:text-[10px] sm:text-[11px] text-[#78716C] uppercase tracking-wider">Fresh New Edits</span>
-                </div>
-                <div>
-                  <span className="block font-serif-luxury text-base xs:text-lg sm:text-2xl font-bold text-[#1C1917]">Direct Chat</span>
-                  <span className="text-[9px] xs:text-[10px] sm:text-[11px] text-[#78716C] uppercase tracking-wider">Instant WhatsApp</span>
-                </div>
-              </div>
+              )}
             </div>
 
             {/* Right Hero Visual Collage (Desktop & Tablet) */}
@@ -121,38 +141,56 @@ export default function HomePage() {
                 {/* Main Large Image */}
                 <div className="relative aspect-3/4 w-full bg-[#EAE2D5] overflow-hidden border border-[#E8DFC8] shadow-xl">
                   <Image
-                    src="/images/hero-claw-clip.jpg"
+                    src={heroImageSrc}
                     alt="Korean Hair Claw Clip by Edamoneglint"
                     fill
                     priority
+                    unoptimized={heroImageSrc.startsWith('data:') || heroImageSrc.startsWith('http')}
                     sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   
                   {/* Floating Label in Image */}
-                  <div className="absolute bottom-4 left-4 right-4 bg-[#FFFFFF]/90 backdrop-blur-sm p-3 border border-[#E8DFC8] flex items-center justify-between">
-                    <div>
-                      <p className="text-[10px] uppercase tracking-widest text-[#78716C] font-semibold">Signature Edit</p>
-                      <p className="font-serif-luxury text-sm font-semibold text-[#1C1917]">Korean Tortoise Claw Clip (EDG-KC-005)</p>
+                  {(homeContent.hero.floatingBadgeTitle || homeContent.hero.floatingBadgeMoq) && (
+                    <div className="absolute bottom-4 left-4 right-4 bg-[#FFFFFF]/90 backdrop-blur-sm p-3 border border-[#E8DFC8] flex items-center justify-between">
+                      <div>
+                        <p className="text-[10px] uppercase tracking-widest text-[#78716C] font-semibold">
+                          Signature Edit
+                        </p>
+                        <p className="font-serif-luxury text-sm font-semibold text-[#1C1917] truncate max-w-[200px]">
+                          {homeContent.hero.floatingBadgeTitle}
+                        </p>
+                      </div>
+                      {homeContent.hero.floatingBadgeMoq && (
+                        <span className="text-xs font-mono text-[#6B2A35] font-semibold">
+                          {homeContent.hero.floatingBadgeMoq}
+                        </span>
+                      )}
                     </div>
-                    <span className="text-xs font-mono text-[#6B2A35] font-semibold">MOQ 50</span>
-                  </div>
+                  )}
                 </div>
 
                 {/* Secondary Accent Floating Card */}
-                <div className="hidden sm:block absolute -bottom-6 -left-8 w-48 bg-[#FFFFFF] p-3 shadow-xl border border-[#E8DFC8] z-20">
-                  <div className="relative aspect-square w-full bg-[#F3ECE2] overflow-hidden mb-2">
-                    <Image
-                      src="/images/category-bows.jpg"
-                      alt="Silk Ribbon Bow"
-                      fill
-                      className="object-cover"
-                    />
+                {(homeContent.hero.floatingCardTitle || homeContent.hero.floatingCardName) && (
+                  <div className="hidden sm:block absolute -bottom-6 -left-8 w-48 bg-[#FFFFFF] p-3 shadow-xl border border-[#E8DFC8] z-20">
+                    <div className="relative aspect-square w-full bg-[#F3ECE2] overflow-hidden mb-2">
+                      <Image
+                        src={floatingCardImageSrc}
+                        alt={homeContent.hero.floatingCardName || "Featured Accessory"}
+                        fill
+                        unoptimized={floatingCardImageSrc.startsWith('data:') || floatingCardImageSrc.startsWith('http')}
+                        className="object-cover"
+                      />
+                    </div>
+                    <p className="text-[10px] uppercase tracking-widest text-[#78716C] font-medium">
+                      {homeContent.hero.floatingCardTitle}
+                    </p>
+                    <p className="font-serif-luxury text-xs font-semibold text-[#1C1917] truncate">
+                      {homeContent.hero.floatingCardName}
+                    </p>
                   </div>
-                  <p className="text-[10px] uppercase tracking-widest text-[#78716C] font-medium">Boutique Favourite</p>
-                  <p className="font-serif-luxury text-xs font-semibold text-[#1C1917]">Soft Chiffon Ribbon Bow</p>
-                </div>
+                )}
               </div>
             </div>
           </div>
@@ -164,9 +202,10 @@ export default function HomePage() {
         {/* Mobile-only Background Image & Overlay */}
         <div className="block lg:hidden absolute inset-0 z-0">
           <Image
-            src="/images/brand-intro-clips.jpg"
+            src={brandIntroImageSrc}
             alt="Edamoneglint Brand Philosophy Background"
             fill
+            unoptimized={brandIntroImageSrc.startsWith('data:') || brandIntroImageSrc.startsWith('http')}
             sizes="100vw"
             className="object-cover object-center opacity-90"
           />
@@ -180,9 +219,10 @@ export default function HomePage() {
             <div className="hidden lg:block lg:col-span-5 order-2 lg:order-1">
               <div className="relative aspect-4/5 w-full max-w-[240px] sm:max-w-none mx-auto bg-[#F3ECE2] border border-[#E8DFC8] shadow-md overflow-hidden group">
                 <Image
-                  src="/images/brand-intro-clips.jpg"
+                  src={brandIntroImageSrc}
                   alt="Edamoneglint Korean Aesthetic Hair Accessories"
                   fill
+                  unoptimized={brandIntroImageSrc.startsWith('data:') || brandIntroImageSrc.startsWith('http')}
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
@@ -193,29 +233,33 @@ export default function HomePage() {
             {/* Editorial Brand Narrative */}
             <div className="lg:col-span-7 order-1 lg:order-2 space-y-4 sm:space-y-6">
               <span className="text-xs uppercase font-semibold tracking-[0.25em] text-[#6B2A35] block">
-                Brand Philosophy
+                {homeContent.brandIntro.badge}
               </span>
 
               <h2 className="font-serif-luxury text-2xl sm:text-4xl md:text-5xl font-light text-[#1C1917] tracking-tight leading-tight">
-                Beautiful Details. <br />
-                <span className="italic font-normal text-[#6B2A35]">Thoughtfully Curated.</span>
+                {homeContent.brandIntro.headline} <br />
+                {homeContent.brandIntro.headlineHighlight && (
+                  <span className="italic font-normal text-[#6B2A35]">
+                    {homeContent.brandIntro.headlineHighlight}
+                  </span>
+                )}
               </h2>
 
               <p className="text-sm sm:text-lg text-[#57534E] leading-relaxed font-light">
-                Edamoneglint brings together Korean-inspired hair accessories designed for modern boutiques, retailers, resellers and fashion businesses.
+                {homeContent.brandIntro.leadCopy}
               </p>
 
               <p className="text-xs sm:text-sm text-[#78716C] leading-relaxed">
-                Inspired by the subtle refinement and romantic simplicity of Seoul street style, every piece in our collection is curated with texture, comfortable hold, and boutique resale value in mind. From effortless satin scrunchies to delicate pearl barrettes and architectural claws, we make wholesale stocking seamless.
+                {homeContent.brandIntro.bodyCopy}
               </p>
 
               <div className="pt-2">
                 <Link
-                  href="/about"
+                  href={homeContent.brandIntro.buttonLink || '/about'}
                   className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-[#1C1917] hover:text-[#6B2A35] transition-colors group"
                 >
                   <span className="border-b border-[#1C1917] group-hover:border-[#6B2A35] pb-1">
-                    Discover Edamoneglint
+                    {homeContent.brandIntro.buttonText || 'Discover Edamoneglint'}
                   </span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -231,17 +275,17 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 sm:mb-12 text-center sm:text-left">
             <div>
               <span className="text-xs uppercase font-semibold tracking-[0.25em] text-[#6B2A35] block mb-1">
-                Wholesale Categories
+                {homeContent.collectionsSection.badge}
               </span>
               <h2 className="font-serif-luxury text-2xl sm:text-4xl md:text-5xl font-medium text-[#1C1917] tracking-tight">
-                Explore Our Collections
+                {homeContent.collectionsSection.headline}
               </h2>
             </div>
             <Link
-              href="/collections"
+              href={homeContent.collectionsSection.buttonLink || '/collections'}
               className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-semibold text-[#1C1917] hover:text-[#6B2A35] transition-colors"
             >
-              <span>View All Collections</span>
+              <span>{homeContent.collectionsSection.buttonText || 'View All Collections'}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -439,18 +483,23 @@ export default function HomePage() {
       {/* 10. INSTAGRAM SHOWCASE */}
       <InstagramFeed />
 
-      {/* 11. WHOLESALE ENQUIRY */}
+      {/* 11. WHOLESALE ENQUIRY / CTA */}
       <section id="enquiry" className="py-20 sm:py-28 bg-[#FAF7F2] border-t border-[#EAE2D5]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-xs uppercase font-semibold tracking-[0.25em] text-[#6B2A35] block mb-2">
-              Start Your Order
+              {homeContent.wholesaleCta.badge || 'Start Your Order'}
             </span>
             <h2 className="font-serif-luxury text-3xl sm:text-4xl md:text-5xl font-medium text-[#1C1917] tracking-tight">
-              Let’s Build Your Collection
+              {homeContent.wholesaleCta.headline || 'Let’s Build Your Collection'}
             </h2>
+            {homeContent.wholesaleCta.subheadline && (
+              <p className="text-base text-[#6B2A35] font-serif-luxury italic mt-1">
+                {homeContent.wholesaleCta.subheadline}
+              </p>
+            )}
             <p className="text-sm text-[#78716C] mt-2 max-w-xl mx-auto leading-relaxed">
-              Interested in stocking Edamoneglint? Send us your requirements and our team will get in touch.
+              {homeContent.wholesaleCta.body || 'Interested in stocking Edamoneglint? Send us your requirements and our team will get in touch.'}
             </p>
           </div>
 
@@ -490,7 +539,7 @@ export default function HomePage() {
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] text-white text-xs uppercase tracking-widest font-semibold hover:bg-[#1EBE5B] transition-colors"
               >
                 <WhatsAppIcon className="w-4 h-4" />
-                <span>WhatsApp: Start a Wholesale Enquiry</span>
+                <span>{homeContent.wholesaleCta.whatsappButtonText ? `WhatsApp: ${homeContent.wholesaleCta.whatsappButtonText}` : 'WhatsApp: Start a Wholesale Enquiry'}</span>
               </a>
             </div>
           </div>
